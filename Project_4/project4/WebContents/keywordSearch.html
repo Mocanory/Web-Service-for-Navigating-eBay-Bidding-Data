@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title> eBay Keyword Search</title>
+
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <!-- Latest compiled and minified JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="css/search.css"></link>
+    <link rel="stylesheet" type="text/css" href="css/autosuggest.css"></link>
+    <script type="text/javascript" src="js/autosuggest.js"></script>
+    <script type="text/javascript" src="js/suggestions.js"></script>
+
+    <script type="text/javascript">
+      window.onload = function () {
+        var oTextbox = new AutoSuggestControl(document.getElementById("searchbox"), new KeywordSearchSuggestions());
+      }
+    </script>
+
+  </head>
+
+  <body>
+    <div id="logo">
+      <a href="/eBay"><img src="https://www.iabeurope.eu/wp-content/uploads/2016/01/EBay_former_logo.svg.png" width=450px height=170px></a>
+    </div>
+
+    <div class="row" style="margin-left: 0; margin-right:0">
+      <form method="GET" action="search" class="col align-self-center"  style="margin-top: 360px; text-align: center;" >
+        <input style="display:none"><!-- for disable autocomplete on chrome -->
+        <input class="form-control" type="text" name="q" id="searchbox" autocomplete="off" placeholder="Enter the Keyword to Search..."/>
+        <input type="hidden" name="numResultsToSkip" value="0" />
+        <input type="hidden" name="numResultsToReturn" value="20" />
+        <br>
+        <p id="switchSearcher"><a href="getItem.html">ItemID Search</a></p>
+        <br>
+        <button type="submit">&nbsp;Search&nbsp;</button>
+      </form>
+    </div>
+
+  </body>
+</html>

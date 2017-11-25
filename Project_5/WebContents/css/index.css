@@ -1,0 +1,100 @@
+body {
+  width: 100%;
+}
+
+#logo {
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 150px;
+}
+
+
+#entrance{
+  text-align: center;
+  font-family: "Consolas",Serif;
+  font-size: 35px;
+  width: 100%;
+  position: fixed;
+  top: 400px;
+}
+
+nav a {
+  /*border:1px solid red;*/
+	position: relative;
+	display: inline-block;
+	margin: 15px 60px;
+	text-decoration: none;
+	font-weight: 500;
+}
+
+.btn a {
+  color: #aab7b7;
+	padding: 0 20px;
+	height: 55px;
+	line-height: 55px;
+  border: 2px outset lightgrey;
+}
+
+.btn a::before,
+.btn a::after {
+	position: absolute;
+	width: 53px;
+	height: 2px;
+	background: #fff;
+	content: '';
+	opacity: 0.2;
+	-webkit-transition: all 0.3s;
+	-moz-transition: all 0.3s;
+	transition: all 0.3s;
+	pointer-events: none;
+}
+
+.btn a::before {
+	top: 0;
+	left: 0;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	transform: rotate(90deg);
+	-webkit-transform-origin: 0 0;
+	-moz-transform-origin: 0 0;
+	transform-origin: 0 0;
+}
+
+.btn a::after {
+	right: 0;
+	bottom: 0;
+	-webkit-transform: rotate(90deg);
+	-moz-transform: rotate(90deg);
+	transform: rotate(90deg);
+	-webkit-transform-origin: 100% 0;
+	-moz-transform-origin: 100% 0;
+	transform-origin: 100% 0;
+}
+
+.btn a:hover::before,
+.btn a:hover::after,
+.btn a:focus::before,
+.btn a:focus::after {
+	opacity: 1;
+}
+
+.btn a:hover::before,
+.btn a:focus::before {
+	left: 50%;
+	-webkit-transform: rotate(0deg) translateX(-50%);
+	-moz-transform: rotate(0deg) translateX(-50%);
+	transform: rotate(0deg) translateX(-50%);
+}
+
+.btn a:hover::after,
+.btn a:focus::after {
+	right: 50%;
+	-webkit-transform: rotate(0deg) translateX(50%);
+	-moz-transform: rotate(0deg) translateX(50%);
+	transform: rotate(0deg) translateX(50%);
+}
+
+.btn a:hover {
+    color: steelblue;
+}

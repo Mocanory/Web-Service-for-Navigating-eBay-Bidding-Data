@@ -1,0 +1,57 @@
+body {
+  font-family:"Times New Roman",Serif;
+  font-size: 16pt;
+}
+
+#logo {
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 150px;
+}
+
+#switchSearcher {
+  width: 100%;
+}
+
+#switchSearcher a {
+  width: 200px;
+  font-size: 15pt;
+  margin-right: auto;
+  margin-left: auto;
+  color: grey;
+  text-decoration: underline;
+}
+
+#switchSearcher a:hover {
+  color:steelblue;
+}
+
+#form {
+  text-align: center;
+  width: 100%;
+  position: fixed;
+  top: 360px;
+}
+
+#searchbox{
+  height: 45px;
+  font-size: 16pt;
+  width: 45%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+button{
+  width: 100px;
+  color: gray;
+  font-size: 17pt;
+  -moz-box-shadow: 0 0 10px #06C;
+  -webkit-box-shadow: 0 0 10px #06C;
+  box-shadow: 0 0 10px #06C;
+  /*cursor: pointer;*/
+}
+
+button:hover {
+  color: black;
+}

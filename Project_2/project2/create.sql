@@ -1,0 +1,51 @@
+CREATE TABLE Bidder(
+    BidderID VARCHAR(50) NOT NULL,
+    Rating INTEGER NOT NULL,
+    Location VARCHAR(100),
+    Country VARCHAR(50),
+    PRIMARY KEY (BidderID)
+);
+
+CREATE TABLE Seller(
+    SellerID VARCHAR(50) NOT NULL,
+    Rating INTEGER NOT NULL,
+    PRIMARY KEY (SellerID)
+);
+
+CREATE TABLE Item(
+    ItemID BIGINT NOT NULL,
+    Name VARCHAR(50) NOT NULL,
+    Currently DECIMAL(8,2) NOT NULL,
+    Buy_Price DECIMAL(8,2),
+    First_Bid DECIMAL(8,2) NOT NULL,
+    Number_of_Bids INTEGER NOT NULL,
+    Location VARCHAR(100) NOT NULL,
+    LATITUDE DOUBLE,
+    LONGITUDE DOUBLE,
+    Country VARCHAR(50) NOT NULL,
+    Started TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
+    Ends TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
+    SellerID VARCHAR(50) NOT NULL,
+    Description VARCHAR(4000) NOT NULL,
+    INDEX (Number_of_Bids),
+    INDEX (Ends),
+    FOREIGN KEY (SellerID) REFERENCES Seller(SellerID),
+    PRIMARY KEY (ItemID)
+);
+
+CREATE TABLE Bid(
+    ItemID BIGINT NOT NULL,
+    BidderID VARCHAR(50) NOT NULL,
+    Time TIMESTAMP NOT NULL DEFAULT '0000-00-00 00:00:00',
+    Amount DECIMAL(8,2) NOT NULL,
+    FOREIGN KEY (ItemID) REFERENCES Item(ItemID),
+    FOREIGN KEY (BidderID) REFERENCES Bidder(BidderID),
+    PRIMARY KEY (ItemID, BidderID, Time)
+);
+
+CREATE TABLE Category(
+    ItemID BIGINT NOT NULL,
+    Category VARCHAR(50) NOT NULL,
+    FOREIGN KEY (ItemID) REFERENCES Item(ItemID),
+    PRIMARY KEY (ItemID, Category)
+);

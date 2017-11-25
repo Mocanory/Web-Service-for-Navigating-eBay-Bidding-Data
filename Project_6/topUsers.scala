@@ -1,0 +1,8 @@
+var textFile = sc.textFile("twitter.edges")
+var lines = textFile.map(line=>line.split(": "))
+var tuples = lines.flatMap(arr=>arr(1).split(",").map(word=>(word,1)))
+val _res = tuples.reduceByKey(_+_)
+val res = _res.filter(x=>x._2>1000)
+// val res = _res.filter(x=>x._2>1000).sortBy(x=>x._2,false)
+res.saveAsTextFile("output")
+System.exit(0)
